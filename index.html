@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Home Button -->
+  <a href="index.html" id="home-btn" class="home-button">Home</a>
+
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <h1 class="title">Tic Tac Toe</h1>
+    <div class="mode-buttons">
+      <button onclick="startGame('computer')">Play with Computer</button>
+      <button onclick="startGame('player')">2 Players</button>
+    </div>
+  </div>
+
+  <!-- Game Container -->
+  <div id="game-container" class="hidden">
+    <div class="board" id="board"></div>
+  </div>
+
+  <!-- Result Popup -->
+  <div id="popup" class="hidden">
+    <div class="popup-content">
+      <h2 id="result-text"></h2>
+      <button id="restart-btn" onclick="restartGame()">Restart Game</button>
+    </div>
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>

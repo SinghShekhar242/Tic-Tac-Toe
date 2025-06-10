@@ -1,0 +1,318 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Press Start 2P', cursive, sans-serif; /* Retro pixelated font */
+    background: #000;
+    color: #0ff; /* Neon color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px #0ff;
+  }
+  
+  .mode-buttons button {
+    background: transparent;
+    border: 2px solid #0ff;
+    color: #0ff;
+    font-size: 1.2rem;
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 5px #0ff;
+  }
+  
+  .mode-buttons button:hover {
+    background-color: #0ff;
+    color: #000;
+    text-shadow: none;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background: #111;
+    border: 2px solid #0ff;
+    font-size: 2.5rem;
+    color: #0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-shadow: 0 0 10px #0ff;
+  }
+  
+  .cell:hover {
+    background: #222;
+  }
+  
+  /* --- FIXED POPUP --- */
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex; /* we’ll control visibility using .hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  #popup.hidden {
+    display: none !important;
+  }
+  
+  .popup-content {
+    background: #111;
+    border: 2px solid #0ff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #0ff;
+    animation: popup-appear 0.3s ease-in-out;
+  }
+  
+  .popup-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+  }
+  
+  .popup-content button {
+    background: #0ff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #0ff;
+  }
+  
+  #restart-btn {
+    display: none;
+  }
+  
+  /* Optional: Popup animation */
+  @keyframes popup-appear {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* --- Home Button --- */
+  .home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: #0ff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    text-shadow: 0 0 5px #0ff;
+  }
+  
+  .home-button:hover {
+    background-color: #0ff;
+    color: #000;
+    text-shadow: none;
+  }
+  
+  /* Hidden class for toggling elements visibility */
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Title styling with glowing text */
+  .title {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px #0ff, 0 0 30px #ff00ff, 0 0 40px #ff0000; /* Multi-colored neon glow */
+    animation: title-glow 1s infinite alternate; /* Glow animation */
+  }
+  
+  /* Neon buttons for mode selection */
+  .mode-buttons button {
+    background: transparent;
+    border: 3px solid #0ff;
+    color: #0ff;
+    font-size: 1.5rem;
+    margin: 15px;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-shadow: 0 0 5px #0ff;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  /* Hover effect for mode buttons */
+  .mode-buttons button:hover {
+    background-color: #0ff;
+    color: #000;
+    text-shadow: none;
+  }
+  
+  /* Retro grid layout for the board */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px); /* Bigger cells for a retro feel */
+    grid-gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Styling for each cell in the grid */
+  .cell {
+    width: 120px;
+    height: 120px;
+    background: #111;
+    border: 3px solid #0ff;
+    font-size: 3rem;
+    color: #0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-shadow: 0 0 15px #0ff, 0 0 30px #ff00ff;
+    font-family: 'Press Start 2P', cursive;
+    transition: 0.3s;
+  }
+  
+  /* Cell hover effect */
+  .cell:hover {
+    background: #222;
+    box-shadow: 0 0 10px #0ff, 0 0 15px #ff00ff;
+  }
+  
+  /* Styling for X and O */
+  .cell.x {
+    color: #00ff00; /* Neon Green for X */
+    text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+  }
+  
+  .cell.o {
+    color: #ff00ff; /* Neon Pink for O */
+    text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+  }
+  
+  /* Popup styling with neon and blur effect */
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7);
+    display: flex; /* we’ll control visibility using .hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  #popup.hidden {
+    display: none !important;
+  }
+  
+  /* Popup content box styling */
+  .popup-content {
+    background: #111;
+    border: 3px solid #0ff;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #0ff;
+    animation: popup-appear 0.3s ease-in-out;
+  }
+  
+  /* Popup heading styling */
+  .popup-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #0ff;
+    text-shadow: 0 0 15px #0ff, 0 0 25px #ff00ff;
+  }
+  
+  /* Button inside the popup */
+  .popup-content button {
+    background: #0ff;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #0ff;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  /* Hidden restart button initially */
+  #restart-btn {
+    display: none;
+  }
+  
+  /* Glow animation for the title */
+  @keyframes title-glow {
+    0% {
+      text-shadow: 0 0 15px #0ff, 0 0 25px #ff00ff;
+    }
+    100% {
+      text-shadow: 0 0 30px #ff00ff, 0 0 40px #ff0000;
+    }
+  }
+  
+  /* Popup appearance animation */
+  @keyframes popup-appear {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+
+  
